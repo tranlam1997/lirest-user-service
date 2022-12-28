@@ -1,0 +1,139 @@
+openapi: 3.0.0
+
+components:
+  schemas:
+    GeneralBadRequestError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Bad request
+        status:
+          type: integer
+          description: Status code
+          example: 400
+        error:
+          type: string
+          description: Error name
+          example: Bad Request Error
+    GeneralUnauthorizedError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Unauthorized
+        status:
+          type: integer
+          description: Status code
+          example: 401
+        error:
+          type: string
+          description: Error name
+          example: Unauthorized Error
+    GeneralForbiddenError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Forbidden
+        status:
+          type: integer
+          description: Status code
+          example: 403
+        error:
+          type: string
+          description: Error name
+          example: Forbidden Error
+    GeneralNotFoundError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Not found
+        status:
+          type: integer
+          description: Status code
+          example: 404
+        error:
+          type: string
+          description: Error name
+          example: Not Found Error
+    GeneralInternalServerErrorError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Internal server error
+        status:
+          type: integer
+          description: Status code
+          example: 500
+        error:
+          type: string
+          description: Error name
+          example: Internal Server Error
+    GeneralNotImplementedError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Not implemented
+        status:
+          type: integer
+          description: Status code
+          example: 501
+        error:
+          type: string
+          description: Error name
+          example: Not Implemented Error
+    GeneralBadGatewayError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Bad gateway
+        status:
+          type: integer
+          description: Status code
+          example: 502
+        error:
+          type: string
+          description: Error name
+          example: Bad Gateway Error
+    GeneralServiceUnavailableError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Service unavailable
+        status:
+          type: integer
+          description: Status code
+          example: 503
+        error:
+          type: string
+          description: Error name
+          example: Service Unavailable Error
+    GeneralGatewayTimeoutError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Gateway timeout
+        status:
+          type: integer
+          description: Status code
+          example: 504
+        error:
+          type: string
+          description: Error name
+          example: Gateway Timeout Error

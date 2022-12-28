@@ -1,0 +1,11 @@
+# syntax=docker/dockerfile:1
+FROM node:16-alpine
+RUN npm install -g pnpm husky lint-staged
+WORKDIR /app
+COPY ["pnpm-lock.yaml", "./"]
+COPY ["tsconfig*.json", "./"]
+RUN pnpm fetch
+COPY . .
+RUN pnpm install -r --offline
+EXPOSE 3000
+CMD ["pnpm", "start"]

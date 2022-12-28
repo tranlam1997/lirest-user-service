@@ -1,0 +1,33 @@
+export enum HttpStatusCode {
+  OK = 200,
+  CREATED = 201,
+  ACCEPTED = 202,
+  NO_CONTENT = 204,
+  BAD_REQUEST = 400,
+  UNAUTHORIZED = 401,
+  FORBIDDEN = 403,
+  NOT_FOUND = 404,
+  METHOD_NOT_ALLOWED = 405,
+  CONFLICT = 409,
+  INTERNAL_SERVER_ERROR = 500,
+  BAD_GATEWAY = 502,
+  SERVICE_UNAVAILABLE = 503,
+  GATEWAY_TIMEOUT = 504,
+}
+
+export const HttpStatusCodeMessages = new Map<HttpStatusCode, string>([
+  [HttpStatusCode.OK, 'OK'],
+  [HttpStatusCode.CREATED, 'Created'],
+  [HttpStatusCode.ACCEPTED, 'Accepted'],
+  [HttpStatusCode.NO_CONTENT, 'No Content'],
+  [HttpStatusCode.BAD_REQUEST, 'Bad Request'],
+  [HttpStatusCode.UNAUTHORIZED, 'Unauthorized'],
+  [HttpStatusCode.FORBIDDEN, 'Forbidden'],
+  [HttpStatusCode.NOT_FOUND, 'Not Found'],
+  [HttpStatusCode.METHOD_NOT_ALLOWED, 'Method Not Allowed'],
+  [HttpStatusCode.CONFLICT, 'Conflict'],
+  [HttpStatusCode.INTERNAL_SERVER_ERROR, 'Internal Server Error'],
+  [HttpStatusCode.BAD_GATEWAY, 'Bad Gateway'],
+  [HttpStatusCode.SERVICE_UNAVAILABLE, 'Service Unavailable'],
+  [HttpStatusCode.GATEWAY_TIMEOUT, 'Gateway Timeout'],
+]);

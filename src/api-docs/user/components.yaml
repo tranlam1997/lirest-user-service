@@ -1,0 +1,97 @@
+openapi: 3.0.0
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: User id
+          example: id
+        firstname:
+          type: string
+          description: first name
+          example: John
+        lastname:
+          type: string
+          description: last name
+          example: Doe
+        dateOfBirth:
+          type: date
+          description: date of birth
+          example: 2022-02-02
+        phoneNumber:
+          type: string
+          description: phone number
+          example: 098728394
+        email:
+          type: string
+          description: User email
+          example: example@gmail.com
+        username:
+          type: string
+          description: username
+          example: yourusername
+        password:
+          type: string
+          description: User password
+          example: password@123
+        createdAt:
+          type: date
+          description: User created at
+          example: 2022-02-01
+        updatedAt:
+          type: date
+          description: User updated at
+          example: 2022-03-01
+        refreshToken:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Refresh token id
+              example: 951a3e5e-f8e6-4026-8626-645be2661096
+            token:
+              type: string
+              description: Refresh token content
+              example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxODQxZjg3Zi1iNDI5LTQ3OGUtYTFiNS1lNDU1OGIyMjVhN2YiLCJ1c2VybmFtZSI6ImxhbWhlaGUiLCJlbWFpbCI6ImxhbXR1YW50cmFuMTk5N0BnbWFpbC5jb20iLCJpYXQiOjE2NTkxNTI5NDZ9.KzZyAPIa2MRMHMhlJcug6S1bI78-iKZJiI9_Z-L9PZw
+            expiresIn:
+              type: number
+              description: Time refresh token expire
+              example: 1659167346
+            createdAt:
+              type: date
+              description: User created at
+              example: 2022-02-01
+            updatedAt:
+              type: date
+              description: User updated at
+              example: 2022-03-01
+
+  requestBodies:
+    UpdateUserByIdRequestBody:
+      description: Update user by id request body
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/UserRequestDto"
+
+  responses:
+    200GetUserSuccess:
+      description: Get user successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'
+    200UpdateUserSuccess:
+      description: Update user successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true

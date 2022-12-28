@@ -1,0 +1,18 @@
+# Service configuration
+service:
+  host: 127.0.0.1
+  port: 3000
+  baseUrl: /api/v1/lirest
+
+# Database configuration
+mysql:
+  host: localhost
+  port: 3306
+  username: root
+  password: '123456'
+  database: 'user'
+
+# API documentation configuration
+api-docs:
+  username: ''
+  password: ''

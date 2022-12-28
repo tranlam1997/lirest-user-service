@@ -1,0 +1,58 @@
+openapi: 3.0.0
+
+components:
+  responses:
+    GeneralBadRequestResponse:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralBadRequestError"
+    GeneralUnauthorizedResponse:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralUnauthorizedError"
+    GeneralForbiddenResponse:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralForbiddenError"
+    GeneralNotFoundResponse:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralNotFoundError"
+    GeneralInternalServerErrorResponse:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralInternalServerErrorError"
+    GeneralNotImplementedResponse:
+      description: Not implemented
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralNotImplementedError"
+    GeneralBadGatewayResponse:
+      description: Bad gateway
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralBadGatewayError"
+    GeneralServiceUnavailableResponse:
+      description: Service unavailable
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralServiceUnavailableError"
+    GeneralGatewayTimeoutResponse:
+      description: Gateway timeout
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralGatewayTimeoutError"

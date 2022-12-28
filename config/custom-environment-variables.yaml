@@ -1,0 +1,18 @@
+# Service configuration
+service:
+  host: HOST_NAME
+  port: SERVICE_PORT
+  baseUrl: SERVICE_BASE_URL
+
+# Database configuration
+mysql:
+  host: MYSQL_HOST_NAME
+  port: MYSQL_PORT
+  username: MYSQL_USERNAME
+  password: MYSQL_PASSWORD
+  database: MYSQL_DATABASE_NAME
+
+# API documentation configuration
+api-docs:
+  username: API_DOCS_USERNAME
+  password: API_DOCS_PASSWORD
