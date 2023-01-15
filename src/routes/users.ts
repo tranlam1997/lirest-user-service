@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { validateRequestData } from '@src/middlewares/request-validator.middleware';
+import validateRequestData from '@src/middlewares/request-validator';
 import { UsersController } from '@src/modules/users/users.controller';
 import { UserSchema } from '@src/modules/users/users.schema';
 import { UsersMiddleware } from '@src/modules/users/users.middleware';

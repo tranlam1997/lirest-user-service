@@ -1,18 +1,20 @@
-import UsersRoutes from './users.routes';
-import express from 'express';
+import UsersRoutes from './users';
+import { Application } from 'express';
 import config from 'config';
 import { openAPISpecification, swaggerUIOptions } from '@src/common/swagger/swagger-config';
 import swaggerUI from 'swagger-ui-express';
-import basicAuth from '../middlewares/basic-auth.middleware';
-import { SecurityHandlerMiddleware } from '../middlewares/security-handler.middleware';
-import { ErrorHandlerMiddlewares } from '../middlewares/errors-handler.middware';
-import { UtilityHandlerMiddlewares } from '../middlewares/utility-handler.middleware';
+import basicAuth from '../middlewares/basic-auth';
+import SecurityHandlerMiddleware from '../middlewares/security-handler';
+import ErrorHandlerMiddlewares from '../middlewares/errors-handler';
+import UtilityHandlerMiddlewares from '../middlewares/utility-handler';
+import requestInspectionMiddleware from '../middlewares/request-inspection';
 
-const baseUrl = config.get('service.baseUrl');
+const baseUrl = config.get<string>('service.baseUrl');
 
-export default (app: express.Application): void => {
+export default (app: Application): void => {
   app.use(UtilityHandlerMiddlewares);
   app.use(SecurityHandlerMiddleware);
+  app.use(requestInspectionMiddleware)
   app.get('/', (_req, res) => {
     res.send('Hello World!');
   });

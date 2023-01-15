@@ -1,4 +1,4 @@
-import { BaseRequest } from '@src/base/request.base';
+import { BaseRequest } from '@src/base/request';
 
 export interface IUserEntity {
   firstName: string;
