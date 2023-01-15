@@ -1,6 +1,6 @@
 import { UsersRepository } from './users.repository';
 import { IUserEntity } from './users.interface';
-import { BadRequestException } from '../../errors/exceptions/bad-request.exception';
+import { BadRequestException } from '../../errors/exceptions/bad-request-exception';
 import { User } from './users.entity';
 import { UpdateResult } from 'typeorm';
 
