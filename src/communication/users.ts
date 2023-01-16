@@ -1,3 +1,4 @@
+import { IUserEntity } from "@src/modules/users/users.interface";
 import { UsersService } from "@src/modules/users/users.service";
 import { GetUserByEmailRequest, GetUserByEmailResponse, GetUserByIdRequest, GetUserByIdResponse, ServerUnaryCall, UntypedHandleCall, UpdateUserRequest, UpdateUserResponse, UsersServiceServer, UsersServiceService, sendUnaryData } from "@tranlam1997/lirest-internal-communication-service"
 
@@ -15,7 +16,7 @@ export class UsersServer implements UsersServiceServer {
   }
 
   public async updateUser(call: ServerUnaryCall<UpdateUserRequest, UpdateUserResponse>, callback: sendUnaryData<UpdateUserResponse>) {
-    const user = await UsersService.updateUser(call.request.id, call.request.user);
+    const user = await UsersService.updateUser(call.request.id, call.request?.user as IUserEntity);
     callback(null, UpdateUserResponse.fromJSON(user));
   }
 }

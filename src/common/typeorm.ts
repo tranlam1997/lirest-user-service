@@ -5,12 +5,13 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 const dbLogger = logger('Database');
 const dataSource: DataSource = new DataSource({
-  type: 'mysql',
-  host: config.get('mysql.host'),
-  // port: config.get('mysql.port'),
-  username: config.get('mysql.username'),
-  password: config.get('mysql.password'),
-  database: config.get('mysql.database'),
+  type: 'postgres',
+  host: config.get('postgres.host'),
+  port: config.get('postgres.port'),
+  username: config.get('postgres.username'),
+  password: config.get('postgres.password'),
+  database: config.get('postgres.database'),
+  schema: config.get('postgres.schema'),
   synchronize: true,
   migrationsRun: true,
   entities: ['../**/*.entity.ts'],

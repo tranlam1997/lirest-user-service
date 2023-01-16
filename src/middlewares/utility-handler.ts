@@ -10,4 +10,4 @@ export default [
   express.static('public'),
   // log all requests to console
   expressLogger,
-];
+] as any;

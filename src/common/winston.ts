@@ -41,7 +41,7 @@ const transports = {
     level: 'http',
   }),
   console: new winston.transports.Console({
-    level: config.get<string>('logLevel'),
+    level: config.get<string>('log.level'),
     handleExceptions: true,
     handleRejections: true,
   }),

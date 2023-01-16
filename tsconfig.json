@@ -9,19 +9,19 @@
         "pretty": true,
         "noEmitOnError": true,
         // Strict Type Checks
-        // "strict": true,
-        // "noImplicitAny": true,
-        // "strictNullChecks": true,
-        // "strictFunctionTypes": true,
-        // "strictBindCallApply": true,
-        // "strictPropertyInitialization": false,
-        // "noImplicitThis": true,
-        // "alwaysStrict": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": false,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
         // Additional Checks
-        // "noUnusedLocals": true,
-        // "noUnusedParameters": true,
-        // "noImplicitReturns": true,
-        // "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
         // Module Resolution
         "moduleResolution": "node",
         "baseUrl": ".",
@@ -51,6 +51,8 @@
         },
         // Project References
         "composite": true,
+        // typings
+        "types": ["reflect-metadata"]
     },
   "exclude": ["api-docs", "node_modules", "dist", "test"],
   "include": [

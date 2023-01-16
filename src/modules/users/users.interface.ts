@@ -12,8 +12,8 @@ export interface IUserEntity {
 
 export interface ICreateUserRequest extends BaseRequest {
   body: {
-    firstname: string;
-    lastname: string;
+    firstName: string;
+    lastName: string;
     dateOfBirth: Date;
     phoneNumber: string;
     email: string;

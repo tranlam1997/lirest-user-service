@@ -1,6 +1,6 @@
 import { UsersService } from './users.service';
 import express from 'express';
-import { IGetUserByIdRequest, IUpdateUserRequest } from './users.interface';
+import { IGetUserByIdRequest, IUpdateUserRequest, IUserEntity } from './users.interface';
 
 export const UsersController = {
   getUserById: async (req: IGetUserByIdRequest, res: express.Response) => {
@@ -9,7 +9,7 @@ export const UsersController = {
   },
 
   updateUser: async (req: IUpdateUserRequest, res: express.Response) => {
-    const { affected: isSuccess } = await UsersService.updateUser(req.params.userId, req.body);
+    const { affected: isSuccess } = await UsersService.updateUser(req.params?.userId as string, req.body as IUserEntity);
     return res.status(isSuccess ? 200 : 400).send({ success: isSuccess ? true : false });
   },
 };

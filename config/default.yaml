@@ -5,14 +5,19 @@ service:
   baseUrl: /api/v1/lirest
 
 # Database configuration
-mysql:
-  host: localhost
-  port: 3306
-  username: root
+postgres:
+  host: 127.0.0.1
+  port: 5432
+  username: postgres
   password: '123456'
-  database: 'user'
+  database: 'lirest'
+  schema: 'user'
 
 # API documentation configuration
 api-docs:
   username: ''
   password: ''
+
+# Log configuration
+log:
+  level: info
