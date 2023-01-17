@@ -1,6 +1,6 @@
 import { UsersService } from './users.service';
 import express from 'express';
-import { IGetUserByIdRequest, IUpdateUserRequest, IUserEntity } from './users.interface';
+import { IGetUserByIdRequest, IUpdateUserRequest, IUserEntity } from './interfaces/users.interface';
 
 export const UsersController = {
   getUserById: async (req: IGetUserByIdRequest, res: express.Response) => {

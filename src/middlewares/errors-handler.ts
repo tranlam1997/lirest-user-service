@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { HttpException } from '../errors/exceptions/http-exceptions';
-import { logger } from '../common/winston';
+import { logger } from '../common/winston.config';
 
 const ErrorHandlerLogger = logger('ErrorHandler');
 // global error handler

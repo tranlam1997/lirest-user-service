@@ -1,6 +1,6 @@
 import { BaseRequest } from '@src/base/request';
 import { UpdateResult } from 'typeorm';
-import { User } from './users.entity';
+import { User } from '../users.entity';
 
 export interface IUserEntity {
   firstName: string;

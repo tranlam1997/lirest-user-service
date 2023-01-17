@@ -1,5 +1,5 @@
 import { DataSource, DataSourceOptions } from 'typeorm';
-import { logger } from './winston';
+import { logger } from './winston.config';
 import config from 'config';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 

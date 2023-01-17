@@ -1,4 +1,4 @@
-import {logger} from '../common/winston';
+import {logger} from '../common/winston.config';
 import { BaseRequest } from '../base/request';
 import { NextFunction } from 'express';
 import { BaseResponse } from '@src/base/response';

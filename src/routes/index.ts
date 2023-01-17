@@ -1,7 +1,7 @@
 import UsersRoutes from './users';
 import { Application } from 'express';
 import config from 'config';
-import { openAPISpecification, swaggerUIOptions } from '@src/common/swagger/swagger-config';
+import { openAPISpecification, swaggerUIOptions } from '@src/common/swagger/swagger.config';
 import swaggerUI from 'swagger-ui-express';
 import basicAuth from '../middlewares/basic-auth';
 import ErrorHandlerMiddlewares from '../middlewares/errors-handler';

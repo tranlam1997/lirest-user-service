@@ -2,7 +2,7 @@ import { Router } from 'express';
 import validateRequestData from '@src/middlewares/request-validator';
 import { UsersController } from '@src/modules/users/users.controller';
 import { UserSchema } from '@src/modules/users/users.schema';
-import { UsersMiddleware } from '@src/modules/users/users.middleware';
+import { UsersMiddleware } from '@src/modules/users/middlewares/users.middleware';
 import { asyncHandler } from '@src/shared/helper';
 
 const router = Router();
