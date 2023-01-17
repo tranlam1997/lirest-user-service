@@ -1,4 +1,6 @@
 import { BaseRequest } from '@src/base/request';
+import { UpdateResult } from 'typeorm';
+import { User } from './users.entity';
 
 export interface IUserEntity {
   firstName: string;
@@ -29,4 +31,11 @@ export interface IGetUserByIdRequest extends BaseRequest {
     id: string;
   };
   accessTokenDecoded?: any;
+}
+
+export interface UserService {
+  getUserById(id: string): Promise<User>;
+  getUserByEmail(email: string): Promise<User>;
+  createUser(data: IUserEntity): Promise<User>;
+  updateUser(userId: string, data: Partial<User>): Promise<UpdateResult>;
 }

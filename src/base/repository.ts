@@ -1,7 +1,7 @@
 import { dataSource } from '@src/common/typeorm';
-import { EntityTarget, FindManyOptions, FindOneOptions } from 'typeorm';
+import { EntityTarget, FindManyOptions, FindOneOptions, ObjectLiteral } from 'typeorm';
 
-export function BaseRepository<T>(entityTarget: EntityTarget<T>) {
+export function BaseRepository<T extends ObjectLiteral>(entityTarget: EntityTarget<T>) {
   return {
     create(payload: any) {
       const entity = dataSource.manager.create<T>(entityTarget, payload);
