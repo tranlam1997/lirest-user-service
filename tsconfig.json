@@ -58,6 +58,6 @@
   "include": [
     "src/**/*.ts",
     "migration/**/*.ts",
-    ".eslintrc.js",
+    "typings/global.d.ts"
   ]
 }
