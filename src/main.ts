@@ -6,20 +6,27 @@ import requestTracingMiddleware from './middlewares/request-tracing';
 import { createLightship } from 'lightship';
 import { ServiceContainer } from './common/inversify.config';
 import { Container } from 'inversify';
+import { InversifyExpressServer } from 'inversify-express-utils';
 
 const MainLogger = logger('Main');
 
 (async () => {
-  const app: express.Application = express();
+  let app: express.Application = express();
   const port = config.get('service.port');
   const container = new Container();
   app.use(requestTracingMiddleware());
 
-  await import('./shared/bootstrap').then((bootstrap) => bootstrap.default(app));
   ServiceContainer(container);
-  const lightship = await createLightship();
+  const inversifyServer = new InversifyExpressServer(container);
 
-  const server = app
+  inversifyServer.setConfig(async (app: express.Application) => {
+    await import('./shared/bootstrap').then((bootstrap) => bootstrap.default(app));
+  });
+
+  app = inversifyServer.build();
+  const lightship = await createLightship();
+  
+  const expressServer = app
     .listen(process.env.PORT || port, async () => {
       // await import('./communication/server');
       MainLogger.info(
@@ -32,6 +39,6 @@ const MainLogger = logger('Main');
     });
 
   lightship.registerShutdownHandler(() => {
-    server.close();
+    expressServer.close();
   });
 })();

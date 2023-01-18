@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { IUserEntity } from './interfaces/users.interface';
+import { IUserEntity } from './interfaces/users-inversify.interface';
 
 export const UserSchema: Joi.ObjectSchema<IUserEntity> = Joi.object({
   firstname: Joi.string().required(),

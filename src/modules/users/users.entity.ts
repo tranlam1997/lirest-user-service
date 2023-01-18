@@ -17,8 +17,8 @@ export class User {
   @Column({ type: 'varchar', length: 100 })
   lastName: string;
 
-  @Column({ type: 'varchar', nullable: true })
-  dateOfBirth: string;
+  @Column({ type: 'date', nullable: true })
+  dateOfBirth: Date;
 
   @Column({ type: 'varchar', length: 100, unique: true })
   phoneNumber: string;

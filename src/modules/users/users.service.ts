@@ -3,7 +3,7 @@ import { BadRequestException } from '../../errors/exceptions/bad-request-excepti
 import { User } from './users.entity';
 import { UpdateResult } from 'typeorm';
 import { inject, injectable } from 'inversify';
-import { TYPES } from './types/users.types';
+import { TYPES } from './types/users-inversify.types';
 
 @injectable()
 export class UsersService {
@@ -27,7 +27,7 @@ export class UsersService {
     return user;
   }
 
-  public async updateUser(userId: string, data: User): Promise<UpdateResult> {
+  public async updateUser(userId: string, data: DeepPartial<User>): Promise<UpdateResult> {
     return this._usersRepository.update({ id: userId }, data);
   }
 }
