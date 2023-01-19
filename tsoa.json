@@ -3,10 +3,11 @@
   "noImplicitAdditionalProperties": "throw-on-extras",
   "controllerPathGlobs": ["src/**/*.controller.ts"],
   "spec": {
-    "outputDirectory": "build",
+    "outputDirectory": "src/api-docs",
     "specVersion": 3
   },
   "routes": {
-    "routesDir": "build"
+    "routesDir": "src",
+    "iocModule": "src/common/inversify/ioc.ts"
   }
 }

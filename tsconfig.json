@@ -47,17 +47,19 @@
             ],
             "@test/*": [
                 "test/*"
-            ]
+            ],
+            "tsoa": ["node_modules/tsoa/dist"],
+            "tsoa/": ["node_modules/tsoa/dist/"],
         },
         // Project References
         "composite": true,
         // typings
-        "types": ["reflect-metadata"]
+        "types": ["reflect-metadata"],
     },
   "exclude": ["api-docs", "node_modules", "dist", "test"],
+  "files": ["typings/global.d.ts"],
   "include": [
     "src/**/*.ts",
     "migration/**/*.ts",
-    "typings/global.d.ts"
   ]
 }

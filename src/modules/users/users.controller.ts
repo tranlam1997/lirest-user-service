@@ -1,6 +1,4 @@
 import { UsersService } from './users.service';
-import { Response } from 'express';
-import { interfaces, controller, httpGet, httpPost, httpDelete, request, queryParam, response, requestParam } from "inversify-express-utils";
 import { inject } from 'inversify';
 import { TYPES } from './types/users-inversify.types';
 import {
@@ -14,27 +12,26 @@ import {
   Request,
   Response as Res,
   SuccessResponse,
+  Put,
 } from "tsoa";
-import { IGetUserByIdRequest, IUpdateUserRequest, IUserEntity } from './interfaces/users.interface';
+import { UpdateUserBodyRequest } from './interfaces/users.interface';
+import { provideSingleton } from '@src/decorators/provide-singleton';
 @Route('users')
-@controller('/users')
-export class UsersController extends Controller implements interfaces.Controller {
+@provideSingleton(UsersController)
+export class UsersController extends Controller {
 
   constructor(@inject(TYPES.UsersService) private readonly usersService: UsersService) {
     super();
   }
 
   @Get('{id}')
-  @httpGet('/:id')
-  async getUserById(@Path() @requestParam("id") id: string, @response() res: Response) {
-    const user = await this.usersService.getUserById(id);
-    return res.status(200).send(user);
+  async getUserById(@Path() id: string) {
+    return this.usersService.getUserById(id);
   }
 
-  @SuccessResponse("201", "Created")
-  @httpPost('/')
-  async updateUser (@request() req: IUpdateUserRequest, @response() res: Response) {
-    const { affected: isSuccess } = await this.usersService.updateUser(req.params?.userId, req.body);
-    return res.status(isSuccess ? 200 : 400).send({ success: isSuccess ? true : false });
+  @Put()
+  async updateUser (@Query() userId: string, @Body() body: UpdateUserBodyRequest) {
+    const { affected: isSuccess } = await this.usersService.updateUser(userId, body);
+    isSuccess ? this.setStatus(200) : this.setStatus(400);
   }
 };
