@@ -8,11 +8,11 @@ import { TYPES } from './types/users-inversify.types';
 @injectable()
 export class UsersService {
   constructor(
-    @inject(TYPES.UsersRepository) private _usersRepository: UsersRepository,
+    @inject(TYPES.UsersRepository) private readonly usersRepository: UsersRepository,
   ) {}
 
   public async getUserByEmail(email: string): Promise<User> {
-    const user = await this._usersRepository.findOne({ where: { email } });
+    const user = await this.usersRepository.findOne({ where: { email } });
 
     if(!user) throw new BadRequestException('User not found');
 
@@ -20,7 +20,7 @@ export class UsersService {
   }
 
   public async getUserById(id: string): Promise<User> {
-    const user = await this._usersRepository.findById(id);
+    const user = await this.usersRepository.findById(id);
 
     if(!user) throw new BadRequestException('User not found');
 
@@ -28,6 +28,6 @@ export class UsersService {
   }
 
   public async updateUser(userId: string, data: DeepPartial<User>): Promise<UpdateResult> {
-    return this._usersRepository.update({ id: userId }, data);
+    return this.usersRepository.update({ id: userId }, data);
   }
 }

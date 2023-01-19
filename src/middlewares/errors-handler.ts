@@ -13,6 +13,7 @@ export default function errorHandlerMiddleware(
   if (err instanceof HttpException) {
     ErrorHandlerLogger.error(err.response);
     res.status(err.response.statusCode).send(err.response);
+    return;
   }
 
   if (err instanceof Error) {

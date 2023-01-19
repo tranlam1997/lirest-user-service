@@ -1,7 +1,9 @@
 import { dataSource } from '@src/common/typeorm.config';
+import { injectable } from 'inversify';
 import { EntityTarget, FindManyOptions, FindOneOptions, ObjectLiteral } from 'typeorm';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 
+@injectable()
 export class BaseRepository<T extends ObjectLiteral> {
   private entityTarget: EntityTarget<T>;
 

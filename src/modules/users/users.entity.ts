@@ -1,3 +1,4 @@
+import { injectable } from 'inversify';
 import {
   Entity,
   Column,
@@ -7,6 +8,7 @@ import {
 } from 'typeorm';
 
 @Entity({ name: 'users'})
+@injectable()
 export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;

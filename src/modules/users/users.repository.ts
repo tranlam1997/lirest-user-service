@@ -1,10 +1,12 @@
+import { EntityTarget } from 'typeorm';
 import { BaseRepository } from '../../base/repository';
 import { User } from './users.entity';
-import {injectable} from 'inversify';
+import {inject, injectable} from 'inversify';
+import { TYPES } from './types/users-inversify.types';
 
 @injectable()
 export class UsersRepository extends BaseRepository<User> {
-  constructor() {
-    super(User);
+  constructor(@inject(TYPES.User) userEntity: EntityTarget<User>) {
+    super(userEntity.constructor);
   }
 }

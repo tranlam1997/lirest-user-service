@@ -1,8 +1,8 @@
 import express from 'express';
 import config from 'config';
+import requestTracingMiddleware from './middlewares/request-tracing';
 import { logger } from './common/winston.config';
 import 'reflect-metadata';
-import requestTracingMiddleware from './middlewares/request-tracing';
 import { createLightship } from 'lightship';
 import { ServiceContainer } from './common/inversify/inversify.config';
 import { iocContainer } from './common/inversify/ioc';
