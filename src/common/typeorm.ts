@@ -1,5 +1,5 @@
 import { DataSource, DataSourceOptions } from 'typeorm';
-import { logger } from './winston.config';
+import { logger } from './winston';
 import config from 'config';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
@@ -14,8 +14,8 @@ const dataSource: DataSource = new DataSource({
   schema: config.get('postgres.schema'),
   synchronize: true,
   migrationsRun: true,
-  entities: ['../**/*.entity.ts'],
-  migrations: ['../migrations/*.ts'],
+  entities: ['**/*.entity.ts'],
+  // migrations: ['../migrations/*.ts'],
   namingStrategy: new SnakeNamingStrategy(),
 } as DataSourceOptions);
 

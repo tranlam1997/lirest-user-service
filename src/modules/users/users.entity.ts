@@ -1,4 +1,5 @@
-import { injectable } from 'inversify';
+import { UUID } from './../../common/interfaces/common-types.interface';
+import { ProvideSingleton } from '@src/decorators/provide-singleton';
 import {
   Entity,
   Column,
@@ -8,10 +9,10 @@ import {
 } from 'typeorm';
 
 @Entity({ name: 'users'})
-@injectable()
+@ProvideSingleton(User)
 export class User {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: UUID;
 
   @Column({ type: 'varchar', length: 100 })
   firstName: string;

@@ -1,5 +1,5 @@
 import express from 'express';
-import { expressLogger } from '@src/common/winston.config';
+import { expressLogger } from '@src/common/winston';
 
 export default [
   // ecognize the incoming Request Object as strings or arrays.

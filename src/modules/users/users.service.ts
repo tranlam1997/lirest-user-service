@@ -2,13 +2,13 @@ import { UsersRepository } from './users.repository';
 import { BadRequestException } from '../../errors/exceptions/bad-request-exception';
 import { User } from './users.entity';
 import { UpdateResult } from 'typeorm';
-import { inject, injectable } from 'inversify';
-import { TYPES } from './types/users-inversify.types';
+import { inject } from 'inversify';
+import { ProvideSingleton } from '@src/decorators/provide-singleton';
 
-@injectable()
+@ProvideSingleton(UsersService)
 export class UsersService {
   constructor(
-    @inject(TYPES.UsersRepository) private readonly usersRepository: UsersRepository,
+    @inject(UsersRepository) private readonly usersRepository: UsersRepository,
   ) {}
 
   public async getUserByEmail(email: string): Promise<User> {

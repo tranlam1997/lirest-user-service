@@ -1,21 +1,54 @@
+import { Response } from 'express';
 import { HttpStatusCode } from '@src/errors/errors.enum';
 
-export interface IResultResponse<T = Record<string, never>> {
-  statusCode: HttpStatusCode;
-  message: string;
-  data: T;
+export interface Result<T = Record<string, never>> {
+  statusCode?: HttpStatusCode;
+  response?: {
+    statusCode?: HttpStatusCode;
+    message?: string;
+    data?: T;
+  }
 }
 
 export class ResultResponse {
-  static send<T = Record<string, never>>(
-    data: T,
-    message = 'Success',
-    statusCode = HttpStatusCode.OK,
-  ): IResultResponse<T> {
-    return {
+  static info<T = Record<string, never>>(
+    res: Response,
+    data: Result<T>
+  ) {
+    const { statusCode = HttpStatusCode.OK, response } = data;
+    const defaultResult = {
       statusCode,
-      message,
-      data,
-    };
+      message: 'Success',
+      data: {},
+    }
+    if(!response) {
+      return res.status(statusCode).json(defaultResult);
+    }
+
+    return res.status(statusCode).json({
+      ...defaultResult,
+      ...response,
+    });
+  }
+
+  static error<T = Record<string, never>>(
+    res: Response,
+    data: Result<T>
+  ) {
+    const { statusCode = HttpStatusCode.INTERNAL_SERVER_ERROR, response } = data;
+    const defaultResult = {
+      statusCode,
+      message: 'Error',
+      data: {},
+    }
+    if(!response) {
+      return res.status(statusCode).json(defaultResult);
+    }
+
+    return res.status(statusCode).json({
+      ...defaultResult,
+      ...response,
+    });
+
   }
 }

@@ -1,9 +1,9 @@
-import { dataSource } from '@src/common/typeorm.config';
-import { injectable } from 'inversify';
+import { dataSource } from '@src/common/typeorm';
 import { EntityTarget, FindManyOptions, FindOneOptions, ObjectLiteral } from 'typeorm';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
+import { ProvideSingleton } from '@src/decorators/provide-singleton';
 
-@injectable()
+@ProvideSingleton(BaseRepository)
 export class BaseRepository<T extends ObjectLiteral> {
   private entityTarget: EntityTarget<T>;
 

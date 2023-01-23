@@ -3,8 +3,8 @@
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { Controller, ValidationService, FieldErrors, ValidateError, TsoaRoute, HttpStatusCodeLiteral, TsoaResponse, fetchMiddlewares } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { UsersController } from './modules/users/users.controller';
-import { iocContainer } from './common/inversify/ioc';
+import { UsersController } from './users/users.controller';
+import { iocContainer } from './../common/ioc';
 import { IocContainer, IocContainerFactory } from '@tsoa/runtime';
 import type { RequestHandler } from 'express';
 import * as express from 'express';
@@ -12,10 +12,110 @@ import * as express from 'express';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
 const models: TsoaRoute.Models = {
+    "Record_string.unknown_": {
+        "dataType": "refAlias",
+        "type": {"dataType":"nestedObjectLiteral","nestedProperties":{},"validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "BadRequestResponseModel": {
+        "dataType": "refObject",
+        "properties": {
+            "statusCode": {"dataType":"enum","enums":[400],"required":true},
+            "message": {"dataType":"enum","enums":["Bad Request"],"required":true},
+            "data": {"ref":"Record_string.unknown_","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "ErrorResponseModel_400_": {
+        "dataType": "refAlias",
+        "type": {"ref":"BadRequestResponseModel","validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "UnauthorizedResponseModel": {
+        "dataType": "refObject",
+        "properties": {
+            "statusCode": {"dataType":"enum","enums":[401],"required":true},
+            "message": {"dataType":"enum","enums":["Unauthorized"],"required":true},
+            "data": {"ref":"Record_string.unknown_","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "ErrorResponseModel_401_": {
+        "dataType": "refAlias",
+        "type": {"ref":"UnauthorizedResponseModel","validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "ForbiddenResponseModel": {
+        "dataType": "refObject",
+        "properties": {
+            "statusCode": {"dataType":"enum","enums":[403],"required":true},
+            "message": {"dataType":"enum","enums":["Forbidden"],"required":true},
+            "data": {"ref":"Record_string.unknown_","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "ErrorResponseModel_403_": {
+        "dataType": "refAlias",
+        "type": {"ref":"ForbiddenResponseModel","validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "NotFoundResponseModel": {
+        "dataType": "refObject",
+        "properties": {
+            "statusCode": {"dataType":"enum","enums":[404],"required":true},
+            "message": {"dataType":"enum","enums":["Not Found"],"required":true},
+            "data": {"ref":"Record_string.unknown_","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "ErrorResponseModel_404_": {
+        "dataType": "refAlias",
+        "type": {"ref":"NotFoundResponseModel","validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "ValidationFailedResponseModel": {
+        "dataType": "refObject",
+        "properties": {
+            "statusCode": {"dataType":"enum","enums":[422],"required":true},
+            "message": {"dataType":"enum","enums":["Validation Failed"],"required":true},
+            "data": {"ref":"Record_string.unknown_","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "ErrorResponseModel_422_": {
+        "dataType": "refAlias",
+        "type": {"ref":"ValidationFailedResponseModel","validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "InternalServerErrorResponseModel": {
+        "dataType": "refObject",
+        "properties": {
+            "statusCode": {"dataType":"enum","enums":[500],"required":true},
+            "message": {"dataType":"enum","enums":["Internal Server Error"],"required":true},
+            "data": {"ref":"Record_string.unknown_","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "ErrorResponseModel_500_": {
+        "dataType": "refAlias",
+        "type": {"ref":"InternalServerErrorResponseModel","validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "UUID": {
+        "dataType": "refAlias",
+        "type": {"dataType":"string","validators":{"pattern":{"value":"[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}"}}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "User": {
         "dataType": "refObject",
         "properties": {
-            "id": {"dataType":"string","required":true},
+            "id": {"ref":"UUID","required":true},
             "firstName": {"dataType":"string","required":true},
             "lastName": {"dataType":"string","required":true},
             "dateOfBirth": {"dataType":"datetime","required":true},
@@ -50,7 +150,7 @@ export function RegisterRoutes(app: express.Router) {
     //  NOTE: If you do not see routes for all of your controllers in this file, then you might not have informed tsoa of where to look
     //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
     // ###########################################################################################################
-        app.get('/users/:id',
+        app.get('/lirest/api/v1/users/:id',
             ...(fetchMiddlewares<RequestHandler>(UsersController)),
             ...(fetchMiddlewares<RequestHandler>(UsersController.prototype.getUserById)),
 
@@ -74,13 +174,13 @@ export function RegisterRoutes(app: express.Router) {
 
 
               const promise = controller.getUserById.apply(controller, validatedArgs as any);
-              promiseHandler(controller, promise, response, undefined, next);
+              promiseHandler(controller, promise, response, 200, next);
             } catch (err) {
                 return next(err);
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.put('/users',
+        app.put('/lirest/api/v1/users',
             ...(fetchMiddlewares<RequestHandler>(UsersController)),
             ...(fetchMiddlewares<RequestHandler>(UsersController.prototype.updateUser)),
 
@@ -105,7 +205,7 @@ export function RegisterRoutes(app: express.Router) {
 
 
               const promise = controller.updateUser.apply(controller, validatedArgs as any);
-              promiseHandler(controller, promise, response, undefined, next);
+              promiseHandler(controller, promise, response, 200, next);
             } catch (err) {
                 return next(err);
             }
@@ -160,7 +260,7 @@ export function RegisterRoutes(app: express.Router) {
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
     function responder(response: any): TsoaResponse<HttpStatusCodeLiteral, unknown>  {
-        return function(status: number | undefined, data: any, headers: any) {
+        return function(status, data, headers) {
             returnHandler(response, status, data, headers);
         };
     };

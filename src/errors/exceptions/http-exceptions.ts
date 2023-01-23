@@ -7,6 +7,7 @@ export class HttpException extends Error {
   constructor(response: Record<string, any>) {
     super();
     this.response = response;
+    Error.captureStackTrace(this, this.constructor);
   }
 
   static createBody(objectOrError: string | Record<string, any>, statusCode: HttpStatusCode) {

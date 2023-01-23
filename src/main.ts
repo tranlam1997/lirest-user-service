@@ -1,11 +1,9 @@
 import express from 'express';
 import config from 'config';
 import requestTracingMiddleware from './middlewares/request-tracing';
-import { logger } from './common/winston.config';
+import { logger } from './common/winston';
 import 'reflect-metadata';
 import { createLightship } from 'lightship';
-import { ServiceContainer } from './common/inversify/inversify.config';
-import { iocContainer } from './common/inversify/ioc';
 
 const MainLogger = logger('Main');
 
@@ -13,8 +11,6 @@ const MainLogger = logger('Main');
   const app: express.Application = express();
   const port = config.get('service.port');
   app.use(requestTracingMiddleware());
-
-  ServiceContainer(iocContainer);
 
   await import('./shared/bootstrap').then((bootstrap) => bootstrap.default(app));
 

@@ -11,7 +11,7 @@ postgres:
   username: postgres
   password: '123456'
   database: 'lirest'
-  schema: 'user'
+  schema: 'users'
 
 # API documentation configuration
 api-docs:
