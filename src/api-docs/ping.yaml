@@ -1,0 +1,25 @@
+openapi: 3.0.0
+
+paths:
+  /api/v1/ping:
+    get:
+      tags:
+        - Ping
+      description: Test service connection.
+      operationId: Ping
+      summary: Ping to service.
+      responses:
+        200:
+          description: Service on.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Pong!
+        default:
+          description: Unexpected error
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Service off.

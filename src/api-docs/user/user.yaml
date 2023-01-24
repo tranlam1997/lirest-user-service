@@ -1,0 +1,79 @@
+openapi: 3.0.0
+
+paths:
+  /api/v1/users/{id}:
+    # Get user by id
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - User
+      description: Get user by id
+      operationId: GetUserById
+      summary: Get user by id
+      parameters:
+        - in: path
+          name: id
+          description: User id
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          $ref: "#/components/responses/200GetUserSuccess"
+        400:
+          $ref: "#/components/responses/BadRequestResponse"
+        401:
+          $ref: "#/components/responses/UnauthorizedResponse"
+        403:
+          $ref: "#/components/responses/ForbiddenResponse"
+        404:
+          $ref: "#/components/responses/NotFoundResponse"
+        500:
+          $ref: "#/components/responses/InternalServerErrorResponse"
+        501:
+          $ref: "#/components/responses/NotImplementedResponse"
+        502:
+          $ref: "#/components/responses/BadGatewayResponse"
+        503:
+          $ref: "#/components/responses/ServiceUnavailableResponse"
+        504:
+          $ref: "#/components/responses/GatewayTimeoutResponse"
+  /api/v1/users:
+    # Update user by id
+    put:
+      tags:
+        - User
+      description: Update user by id
+      operationId: UpdateUserById
+      summary: Update user if exist
+      parameters:
+        - in: query
+          name: userId
+          description: User id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/CreateUserRequestBody"
+      responses:
+        200:
+          $ref: "#/components/responses/200UpdateUserSuccess"
+        400:
+          $ref: "#/components/responses/BadRequestResponse"
+        401:
+          $ref: "#/components/responses/UnauthorizedResponse"
+        403:
+          $ref: "#/components/responses/ForbiddenResponse"
+        404:
+          $ref: "#/components/responses/NotFoundResponse"
+        500:
+          $ref: "#/components/responses/InternalServerErrorResponse"
+        501:
+          $ref: "#/components/responses/NotImplementedResponse"
+        502:
+          $ref: "#/components/responses/BadGatewayResponse"
+        503:
+          $ref: "#/components/responses/ServiceUnavailableResponse"
+        504:
+          $ref: "#/components/responses/GatewayTimeoutResponse"

@@ -1,0 +1,139 @@
+openapi: 3.0.0
+
+components:
+  schemas:
+    BadRequestException:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Bad Request
+        statusCode:
+          type: integer
+          description: Status code
+          example: 400
+        data:
+          type: object
+          description: response data
+          example: {}
+    UnauthorizedException:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Unauthorized
+        statusCode:
+          type: integer
+          description: Status code
+          example: 401
+        data:
+          type: object
+          description: response data
+          example: {}
+    ForbiddenException:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Forbidden
+        statusCode:
+          type: integer
+          description: Status code
+          example: 403
+        data:
+          type: object
+          description: response data
+          example: {}
+    NotFoundException:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Not Found
+        statusCode:
+          type: integer
+          description: Status code
+          example: 404
+        data:
+          type: object
+          description: response data
+          example: {}
+    InternalServerErrorException:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Internal Server Error
+        statusCode:
+          type: integer
+          description: Status code
+          example: 500
+        data:
+          type: object
+          description: response data
+          example: {}
+    NotImplementedException:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Not Implemented
+        statusCode:
+          type: integer
+          description: Status code
+          example: 501
+        data:
+          type: object
+          description: response data
+          example: {}
+    BadGatewayException:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Bad Gateway
+        statusCode:
+          type: integer
+          description: Status code
+          example: 502
+        data:
+          type: object
+          description: response data
+          example: {}
+    ServiceUnavailableException:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Service Unavailable
+        statusCode:
+          type: integer
+          description: Status code
+          example: 503
+        data:
+          type: object
+          description: response data
+          example: {}
+    GatewayTimeoutException:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Gateway Timeout
+        statusCode:
+          type: integer
+          description: Status code
+          example: 504
+        data:
+          type: object
+          description: response data
+          example: {}

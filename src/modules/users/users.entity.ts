@@ -1,5 +1,4 @@
 import { UUID } from './../../common/interfaces/common-types.interface';
-import { ProvideSingleton } from '@src/decorators/provide-singleton';
 import {
   Entity,
   Column,
@@ -9,7 +8,6 @@ import {
 } from 'typeorm';
 
 @Entity({ name: 'users'})
-@ProvideSingleton(User)
 export class User {
   @PrimaryGeneratedColumn('uuid')
   id: UUID;

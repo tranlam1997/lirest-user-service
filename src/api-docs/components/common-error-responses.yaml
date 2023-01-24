@@ -1,0 +1,58 @@
+openapi: 3.0.0
+
+components:
+  responses:
+    BadRequestResponse:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/BadRequestException"
+    UnauthorizedResponse:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/UnauthorizedException"
+    ForbiddenResponse:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ForbiddenException"
+    NotFoundResponse:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundException"
+    InternalServerErrorResponse:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/InternalServerErrorException"
+    NotImplementedResponse:
+      description: Not implemented
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotImplementedException"
+    BadGatewayResponse:
+      description: Bad gateway
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/BadGatewayException"
+    ServiceUnavailableResponse:
+      description: Service unavailable
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ServiceUnavailableException"
+    GatewayTimeoutResponse:
+      description: Gateway timeout
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GatewayTimeoutException"

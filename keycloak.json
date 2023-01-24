@@ -1,0 +1,12 @@
+{
+  "realm": "lirest",
+  "auth-server-url": "http://localhost:8080/",
+  "ssl-required": "external",
+  "resource": "lirest-user-service",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "szJsr8AJ4In7YhkAjiEw52UBorNK1846"
+  },
+  "confidential-port": 0,
+  "policy-enforcer": {}
+}
