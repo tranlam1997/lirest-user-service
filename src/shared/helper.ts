@@ -20,3 +20,7 @@ export const asyncHandler = (...fn: any[]): any => {
       return Promise.resolve(handler(req, res, next)).catch(next);
     });
 };
+
+export function convertNanosecondsToMilliseconds(nanoSeconds: number): number {
+  return nanoSeconds / 1000000;
+}

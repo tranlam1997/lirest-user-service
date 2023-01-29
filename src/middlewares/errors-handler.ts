@@ -13,7 +13,7 @@ export default function errorHandlerMiddleware(
 ) {
   if (err instanceof HttpException) {
     ErrorHandlerLogger.error({
-      message: err.message,
+      message: JSON.stringify(err.response.message),
       stack: err.stack,
     });
 
@@ -25,14 +25,14 @@ export default function errorHandlerMiddleware(
 
   if (err instanceof Error) {
     ErrorHandlerLogger.error({
-      message: err.message,
+      message: JSON.stringify(err.message),
       stack: err.stack,
     });
 
     return ResultResponse.error(res, {
       statusCode: 500,
       response: {
-        message: err.message,
+        message: JSON.stringify(err.message),
       },
     })
   }
