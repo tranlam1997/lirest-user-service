@@ -1,14 +1,12 @@
 import { UsersService } from './users.service';
 import { Request, Response, Router } from 'express';
-import { asyncHandler } from '../../shared/helper';
-import {passport} from '../../common/keycloak'
+import { asyncHandler } from '@src/shared/helper';
 
 const UsersRouter = Router();
 
 export default (app: Router) => {
   UsersRouter.get(
     '/:id',
-    passport.authenticate('oidc', { failureRedirect: '/login' }),
     asyncHandler(async (req: Request, res: Response) => {
       const user = await UsersService.getUserById(req.params.id);
       return res.status(200).send(user);

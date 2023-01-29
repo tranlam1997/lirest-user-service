@@ -5,14 +5,19 @@ service:
   baseUrl: SERVICE_BASE_URL
 
 # Database configuration
-mysql:
-  host: MYSQL_HOST_NAME
-  port: MYSQL_PORT
-  username: MYSQL_USERNAME
-  password: MYSQL_PASSWORD
-  database: MYSQL_DATABASE_NAME
+postgres:
+  host: POSTGRES_HOST
+  port: POSTGRES_PORT
+  username: POSTGRES_USERNAME
+  password: POSTGRES_PASSWORD
+  database: POSTGRES_DATABASE
+  schema: POSTGRES_SCHEMA
 
 # API documentation configuration
 api-docs:
   username: API_DOCS_USERNAME
   password: API_DOCS_PASSWORD
+
+# Log configuration
+log:
+  level: LOG_LEVEL
