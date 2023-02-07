@@ -6,7 +6,7 @@ class KafkaConsumer {
 
   constructor() {
     this.consumer = createKafkaConsumer({
-      kafkaConfig,
+      kafkaConfig: { ...kafkaConfig, customGeneralKafkaConfig: { brokers: [kafkaConfig.serverUrl] } },
     });
   }
 }

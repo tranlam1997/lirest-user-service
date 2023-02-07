@@ -10,8 +10,8 @@ postgres:
   port: 5432
   username: postgres
   password: '123456'
-  database: 'lirest'
-  schema: 'users'
+  database: lirest
+  schema: user
 
 # API documentation configuration
 api-docs:

@@ -12,7 +12,7 @@ const formatInfo = printf(({ level, message, ...metadata }) => {
     { timestamp: string | Date; serviceName: string; [k: string]: any }
   >metadata;
   return (
-    `[${serviceName.toUpperCase() ?? 'UNKNOWN'}] level: ${level}, message: ${message}, ` +
+    `[${serviceName?.toUpperCase() ?? 'UNKNOWN'}] level: ${level}, message: ${message}, ` +
     `${
       requestTracingNamespace?.get('tracingId')
         ? `tracingId: ${requestTracingNamespace.get('tracingId')}, `

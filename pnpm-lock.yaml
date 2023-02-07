@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@sinclair/typebox': ^0.25.21
-  '@tranlam1997/lirest-event-pub-sub': ^0.1.6
+  '@tranlam1997/lirest-event-pub-sub': ^0.1.7
   '@tranlam1997/lirest-internal-communication-service': 0.2.12
   '@types/bcryptjs': ^2.4.2
   '@types/cls-hooked': ^4.3.3
@@ -57,7 +57,7 @@ specifiers:
 
 dependencies:
   '@sinclair/typebox': 0.25.21
-  '@tranlam1997/lirest-event-pub-sub': 0.1.6
+  '@tranlam1997/lirest-event-pub-sub': 0.1.7
   '@tranlam1997/lirest-internal-communication-service': 0.2.12
   '@types/swagger-jsdoc': 6.0.1
   bcryptjs: 2.4.3
@@ -1014,8 +1014,8 @@ packages:
     resolution: {integrity: sha512-Uy0+khmZqUrUGm5dmMqVlnvufZRSK0FbYzVgp0UMstm+F5+W2/jnEEQyc9vo1ZR/E5ZI/B1WjjoTqBqwJL6Krw==}
     dev: false
 
-  /@tranlam1997/lirest-event-pub-sub/0.1.6:
-    resolution: {integrity: sha512-EJbYzRVt4VlsyNuDPge5GhEcUwAHYXsr96OMIMAc7hNfvRrnv4uw3FYbG1n7GujoP/+vv3ZdEiqNqbpwdu46wg==, tarball: download/@tranlam1997/lirest-event-pub-sub/0.1.6/25d4524c29640c548d6a2df59b012eb27dacd3c7}
+  /@tranlam1997/lirest-event-pub-sub/0.1.7:
+    resolution: {integrity: sha512-jjPvhIH6id/giT+mtiGEaYiSGj8vkuKF2mZdCYccKB3XThVC/3JZj9Ba4IiSRw+wpBPwMIAwPZShAnVbCAxYKw==, tarball: download/@tranlam1997/lirest-event-pub-sub/0.1.7/264344c265b56942ac2e6e79ea82029f475462f4}
     dependencies:
       '@kafkajs/confluent-schema-registry': 3.3.0
       axios: 1.3.2
