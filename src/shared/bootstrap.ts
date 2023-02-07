@@ -6,7 +6,8 @@ import ErrorHandlerMiddleware from '../middlewares/errors-handler';
 import loadSwaggerUI from '../common/swagger/swagger';
 import ResourceHandler from '../middlewares/resource-handler';
 import Controllers from '../controllers';
-import UserKafkaConsumer from '@src/common/kafka/consumer';
+import KafkaConsumer from '@src/common/kafka/consumer';
+import subscribeTopics from '@src/common/kafka/subscribers';
 
 export default async function bootstrap(app: Application) {
   // connect to db
@@ -14,7 +15,9 @@ export default async function bootstrap(app: Application) {
   // load swagger ui
   loadSwaggerUI(app);
   // load kafka consumer
-  await UserKafkaConsumer.consumer.connect();
+  await KafkaConsumer.consumer.connect();
+  // subscribe kafka topics
+  await subscribeTopics();
   // set up middlewares
   app.use(UtilityMiddleware);
   app.use(RequestInspectionMiddleware);

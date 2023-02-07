@@ -1,8 +1,8 @@
-import { createKafkaConsumer, KafkaConsumer } from '@tranlam1997/lirest-event-pub-sub';
+import { createKafkaConsumer, KafkaConsumer as KafkaConsumerInst } from '@tranlam1997/lirest-event-pub-sub';
 import { kafkaConfig } from './config';
 
-class UserKafkaConsumer {
-  public readonly consumer: KafkaConsumer;
+class KafkaConsumer {
+  public readonly consumer: KafkaConsumerInst;
 
   constructor() {
     this.consumer = createKafkaConsumer({
@@ -11,4 +11,4 @@ class UserKafkaConsumer {
   }
 }
 
-export default new UserKafkaConsumer();
+export default new KafkaConsumer();
