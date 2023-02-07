@@ -9,14 +9,13 @@ const requestTracingNamespace = cls.getNamespace('request-tracing');
 
 const formatInfo = printf(({ level, message, ...metadata }) => {
   const { timestamp, serviceName, ...rest } = <
-    { timestamp: string | Date; serviceName: string; [k: string]: any }
-  >metadata;
+    { timestamp: string | Date; serviceName?: string;[k: string]: any }
+    >metadata;
   return (
-    `[${serviceName?.toUpperCase() ?? 'UNKNOWN'}] level: ${level}, message: ${message}, ` +
-    `${
-      requestTracingNamespace?.get('tracingId')
-        ? `tracingId: ${requestTracingNamespace.get('tracingId')}, `
-        : ''
+    `${serviceName ? `[${serviceName.toUpperCase()}]` : ''} level: ${level}, message: ${message}, ` +
+    `${requestTracingNamespace?.get('tracingId')
+      ? `tracingId: ${requestTracingNamespace.get('tracingId')}, `
+      : ''
     }` +
     `timestamp: ${timestamp}, data: ${JSON.stringify(rest)}, ` +
     `serverUptime: ${process.uptime()}s`
