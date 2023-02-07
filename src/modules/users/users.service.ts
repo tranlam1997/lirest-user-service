@@ -12,10 +12,10 @@ export const UsersService = {
     data,
     metadata,
   }: {
-    data: string;
+    data: DeepPartial<User>;
     metadata: ProducerRecordMessageHeaders;
   }): Promise<void> {
-    const user = await UsersRepository.create(JSON.parse(data)).catch((err) => {
+    const user = await UsersRepository.create(data).catch((err) => {
       usersLogger.error(`Error creating user: ${err}`);
     });
 

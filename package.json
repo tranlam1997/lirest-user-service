@@ -27,7 +27,7 @@
   "license": "ISC",
   "dependencies": {
     "@sinclair/typebox": "^0.25.21",
-    "@tranlam1997/lirest-event-pub-sub": "^0.1.7",
+    "@tranlam1997/lirest-event-pub-sub": "^0.1.10",
     "@tranlam1997/lirest-internal-communication-service": "0.2.12",
     "@types/swagger-jsdoc": "^6.0.1",
     "bcryptjs": "^2.4.3",
