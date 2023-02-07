@@ -21,3 +21,13 @@ api-docs:
 # Log configuration
 log:
   level: info
+
+# Kafka config
+kafka:
+  clientId: lirest-user-service
+  groupId: lirest-user-service-group
+  serverUrl: pkc-1dkx6.ap-southeast-1.aws.confluent.cloud:9092
+  sasl:
+    username: ILK6DZ3OA76F2G4Q
+    password: Cxbas4RGsUGBm3uYMsK0iRjD+mFNYmcdAqJteVhdpzslswyCskC/kEDz9AwidIcZ
+  enabled: false

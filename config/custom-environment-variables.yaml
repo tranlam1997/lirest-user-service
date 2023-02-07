@@ -21,3 +21,13 @@ api-docs:
 # Log configuration
 log:
   level: LOG_LEVEL
+
+# Kafka configuration
+kafka:
+  clientId: KAFKA_CLIENT_ID
+  groupId: KAFKA_GROUP_ID
+  serverUrl: KAFKA_SERVER_URL
+  sasl:
+    username: KAFKA_SASL_USERNAME
+    password: KAFKA_SASL_PASSWORD
+  enabled: KAFKA_ENABLED

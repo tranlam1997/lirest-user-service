@@ -5,7 +5,7 @@ import { logger } from './common/winston';
 import 'reflect-metadata';
 import { createLightship } from 'lightship';
 
-const MainLogger = logger('Main');
+const mainLogger = logger('main');
 
 (async () => {
   const app: express.Application = express();
@@ -19,12 +19,13 @@ const MainLogger = logger('Main');
   const expressServer = app
     .listen(process.env.PORT || port, async () => {
       // await import('./communication/server');
-      MainLogger.info(
+      mainLogger.info(
         `Service running at https://${config.get('service.host')}:${process.env.PORT || port}`,
       );
+      lightship.signalReady();
     })
     .on('error', () => {
-      MainLogger.error('Unable to start server');
+      mainLogger.error('Unable to start server');
       lightship.shutdown();
     });
 
