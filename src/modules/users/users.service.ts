@@ -15,14 +15,16 @@ export const UsersService = {
     data: DeepPartial<User>;
     metadata: ProducerRecordMessageHeaders;
   }): Promise<void> {
-    const user = await UsersRepository.create(data).catch((err) => {
-      usersLogger.error(`Error creating user: ${err}`);
-    });
+    try {
+      const user = await UsersRepository.create(data);
 
-    if(!user) throw new BadRequestException('Error creating user');
+      if(!user) throw new BadRequestException('Error creating user');
 
-    usersLogger.info(`User created: ${user.id}`);
-  },
+      usersLogger.info(`User created: ${user.id}`);
+
+    } catch (err) {
+      usersLogger.error(err);
+    }},
 
   async getUserByEmail(email: string): Promise<User> {
     const user = await UsersRepository.findOne({ where: { email } });

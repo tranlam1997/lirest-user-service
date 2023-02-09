@@ -4,7 +4,6 @@ import {
   ProducerRecordMessageHeaders,
 } from '@tranlam1997/lirest-event-pub-sub';
 import { kafkaConfig } from './config';
-import { Kafkajs } from '@tranlam1997/lirest-event-pub-sub';
 
 class KafkaConsumer {
   private readonly consumer: KafkaConsumerInst;
@@ -36,7 +35,7 @@ class KafkaConsumer {
       metadata: ProducerRecordMessageHeaders;
     }) => Promise<void> | void,
   ) {
-    await this.consumer.runEachMessage(callback);
+      await this.consumer.runEachMessage(callback);
   }
 
   public getConfigInfo() {
