@@ -4,6 +4,7 @@ import requestTracingMiddleware from './middlewares/request-tracing';
 import { logger } from './common/winston';
 import 'reflect-metadata';
 import { createLightship } from 'lightship';
+import gracefulShutdown from './shared/event-handler';
 
 const mainLogger = logger('main');
 
@@ -28,6 +29,8 @@ const mainLogger = logger('main');
       mainLogger.error('Unable to start server');
       lightship.shutdown();
     });
+
+  gracefulShutdown();
 
   lightship.registerShutdownHandler(() => {
     expressServer.close();

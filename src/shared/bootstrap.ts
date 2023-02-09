@@ -17,9 +17,12 @@ export default async function bootstrap(app: Application) {
   await kafkaBootstrap();
   // set up middlewares
   app.use(UtilityMiddleware);
+  // log request info
   app.use(RequestInspectionMiddleware);
   // set up apis
   Controllers(app);
+  // handle not found resource or api
   app.use(ResourceHandler);
+  // global error handler
   app.use(ErrorHandlerMiddleware);
 }
