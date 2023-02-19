@@ -5,7 +5,9 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  BeforeInsert,
 } from 'typeorm';
+import bcryptjs from 'bcryptjs';
 
 @Entity({ name: 'users'})
 export class User {
@@ -33,8 +35,16 @@ export class User {
   @Column({ type: 'varchar', length: 100 })
   password: string;
 
+  @BeforeInsert()
+  async hashPassword() {
+    this.password = await bcryptjs.hash(this.password, bcryptjs.genSaltSync(10));
+  }
+
   @Column({ type: 'boolean', default: false })
   emailVerified: boolean;
+
+  @Column({ type: 'varchar', length: 100, default: null })
+  subjectId: string;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

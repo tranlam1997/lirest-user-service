@@ -3,7 +3,7 @@ import { BadRequestException } from '../../errors/exceptions/bad-request-excepti
 import { User } from './users.entity';
 import { UpdateResult } from 'typeorm';
 import { ProducerRecordMessageHeaders } from '@tranlam1997/lirest-event-pub-sub';
-import {logger} from '@src/common/winston';
+import { logger } from '@src/common/winston';
 
 const usersLogger = logger('users-service');
 
@@ -18,13 +18,14 @@ export const UsersService = {
     try {
       const user = await UsersRepository.create(data);
 
-      if(!user) throw new BadRequestException('Error creating user');
+      if (!user) throw new BadRequestException('Error creating user');
 
       usersLogger.info(`User created: ${user.id}`);
 
     } catch (err) {
       usersLogger.error(err);
-    }},
+    }
+  },
 
   async getUserByEmail(email: string): Promise<User> {
     const user = await UsersRepository.findOne({ where: { email } });
