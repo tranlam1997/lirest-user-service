@@ -1,5 +1,6 @@
 # Service configuration
 service:
+  name: lirest-user-service
   host: 127.0.0.1
   port: 3001
   baseUrl: /api/v1
@@ -26,8 +27,8 @@ log:
 kafka:
   clientId: lirest-user-service
   groupId: lirest-user-service-group
-  serverUrl: pkc-1dkx6.ap-southeast-1.aws.confluent.cloud:9092
+  serverUrl: 'localhost:9092'
   sasl:
-    username: ILK6DZ3OA76F2G4Q
-    password: Cxbas4RGsUGBm3uYMsK0iRjD+mFNYmcdAqJteVhdpzslswyCskC/kEDz9AwidIcZ
+    username: ''
+    password: ''
   enabled: false
