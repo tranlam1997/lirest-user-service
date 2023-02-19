@@ -4,6 +4,7 @@ import {
   ProducerRecordMessageHeaders,
 } from '@tranlam1997/lirest-event-pub-sub';
 import { kafkaConfig } from './config';
+import { Kafkajs } from '@tranlam1997/lirest-event-pub-sub';
 
 class KafkaConsumer {
   private readonly consumer: KafkaConsumerInst;
@@ -12,7 +13,7 @@ class KafkaConsumer {
     this.consumer = createKafkaConsumer({
       kafkaConfig: {
         ...kafkaConfig,
-        customGeneralKafkaConfig: { brokers: [kafkaConfig.serverUrl] },
+        customGeneralKafkaConfig: { brokers: [kafkaConfig.serverUrl], logLevel: Kafkajs.logLevel.INFO },
       },
     });
   }
