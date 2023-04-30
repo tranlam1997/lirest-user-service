@@ -49,8 +49,6 @@
             "@test/*": [
                 "test/*"
             ],
-            "tsoa": ["node_modules/tsoa/dist"],
-            "tsoa/": ["node_modules/tsoa/dist/"],
         },
         // Project References
         "composite": true,
