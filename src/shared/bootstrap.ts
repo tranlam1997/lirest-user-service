@@ -7,6 +7,7 @@ import loadSwaggerUI from '../common/swagger/swagger';
 import ResourceHandler from '../middlewares/resource-handler';
 import Controllers from '../controllers';
 import kafkaBootstrap from '../common/kafka/bootstrap';
+import config from 'config';
 
 export default async function bootstrap(app: Application) {
   // connect to db
@@ -14,7 +15,9 @@ export default async function bootstrap(app: Application) {
   // load swagger ui
   loadSwaggerUI(app);
   // set up kafka
-  await kafkaBootstrap();
+  if(JSON.parse(config.get<string>('kafka.enabled'))) {
+    await kafkaBootstrap();
+  }
   // set up middlewares
   app.use(UtilityMiddleware);
   // log request info

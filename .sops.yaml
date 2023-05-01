@@ -1,0 +1,3 @@
+creation_rules:
+  - encrypted_regex: "^(postgres|aws)$"
+    gcp_kms: projects/dotted-howl-319203/locations/global/keyRings/sops/cryptoKeys/sops-key

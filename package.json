@@ -26,6 +26,7 @@
   "email": "lam.tttech19@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/rds-signer": "^3.321.1",
     "@sinclair/typebox": "^0.25.21",
     "@tranlam1997/lirest-event-pub-sub": "^0.1.17",
     "@tranlam1997/lirest-internal-communication-service": "0.2.12",

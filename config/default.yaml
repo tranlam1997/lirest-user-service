@@ -1,34 +1,48 @@
 # Service configuration
 service:
-  name: lirest-user-service
-  host: 127.0.0.1
-  port: 3001
-  baseUrl: /api/v1
-
+    name: lirest-user-service
+    host: 127.0.0.1
+    port: 3001
+    baseUrl: /api/v1
 # Database configuration
 postgres:
-  host: 127.0.0.1
-  port: 5432
-  username: postgres
-  password: '123456'
-  database: lirest
-  schema: user
-
+    host: ENC[AES256_GCM,data:k0MYX+DIZeAgNmifXuquej7M/NrGxLmtNCJxLQBVASXfKh06EnVYP5xWP4CCpehh2i3B,iv:1q9jJl578fEp0Py0L+pOxkSJ4DoVV6hqIAaHGpc3PSI=,tag:8b8KROPFKxMKUCKK9m+XDQ==,type:str]
+    port: ENC[AES256_GCM,data:jdHpQQ==,iv:ATIHN8M6kKTjEQe4a/Oy8A+NaWGCRm1GXkr5chR5edo=,tag:FxrKzGC5mYEIuUjS+ug5ZQ==,type:int]
+    username: ENC[AES256_GCM,data:+97byOZDQduLFg==,iv:bGDYEAKu8RfOO99VswXNh12J/o7W7GsTrwtKD33pusw=,tag:L1BOLPkBVT4y4rejJZlA5Q==,type:str]
+    database: ENC[AES256_GCM,data:SEqxfYYn,iv:otzY1eXu3qwXUmzfR22CYltaZ3kQNnjWzJhNXwP+nKI=,tag:rDWCzHurbM1Gnk7LwVQbxQ==,type:str]
+    schema: ENC[AES256_GCM,data:7sOCJQ==,iv:5/wYKz3YdMTAcSJO2N7zhBbeg/vYJXjAG1GdYVrMm+8=,tag:zISnD/1W397rAXE2AjdMsA==,type:str]
 # API documentation configuration
 api-docs:
-  username: ''
-  password: ''
-
+    username: ""
+    password: ""
 # Log configuration
 log:
-  level: info
-
+    level: info
 # Kafka config
 kafka:
-  clientId: lirest-user-service
-  groupId: lirest-user-service-group
-  serverUrl: 'localhost:9092'
-  sasl:
-    username: ''
-    password: ''
-  enabled: false
+    clientId: lirest-user-service
+    groupId: lirest-user-service-group
+    serverUrl: localhost:9092
+    sasl:
+        username: ""
+        password: ""
+    enabled: false
+# AWS config
+aws:
+    region: ENC[AES256_GCM,data:+Y+o8TtPNAdS,iv:Up8pknNevNT7onlffOB4SV1+oBMXj3ehDajrx6uYD3U=,tag:xwd4dLm2eQTzuWAGTDdRDw==,type:str]
+    accessKeyId: ENC[AES256_GCM,data:fhU4AIAPbAdHxWcl2xW7RVJ+G2c=,iv:FJUkBAeEQemDnQM5RPvMQ2b5n+tq/NcZnjmx8N3PbFE=,tag:6lkB7x0XOUshBMBoeP/VGA==,type:str]
+    secretAccessKey: ENC[AES256_GCM,data:JXlGVGDNjUsuNR7KkDE+nnKYoP6DToGRTuHPX1Dl67wxW2oem1pl5Q==,iv:SP5wy1JBEpFnUC8OajNFF0Wp/6JcjNiOxC1bkV6dBV8=,tag:FVym55X6hJ60edqngYkKrA==,type:str]
+sops:
+    kms: []
+    gcp_kms:
+        - resource_id: projects/dotted-howl-319203/locations/global/keyRings/sops/cryptoKeys/sops-key
+          created_at: "2023-05-01T16:31:37Z"
+          enc: CiQAmgMp+q6NdG54LykDrscdyuZibn9UiORcFi1YuThRaBiTYewSSQB80D3f7eTxZWU+Xt8RPZlhSFL4lHRryBmn2NSNFZPigKSAczlPYwP6FZ4tUEaT+nDdJVRKrlnIw3w0ibrJ2j7RMxAV3ecpu8E=
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-05-01T16:31:38Z"
+    mac: ENC[AES256_GCM,data:QYA8Mw8XyudLVE6V/9GbwigL6J0TolYoiGuBGI8CAObPzt6d5LDzyFdLo9UpKyHPWcuaFAnrm25pf+Cjoyaop1qk76Vdk88DNKCYBzZB2Dbe3BkFuTEznOnAL7WnsGVZna4ChB36AQEwWll2ujvMoJXv3fMlSNZQcCjUwFUuR88=,iv:wweno+bycVlhai07yyGEYz0YSobCbIIF1HDAoyulyGI=,tag:6yYLv0ZnWGJ6gcWswU5VzA==,type:str]
+    pgp: []
+    encrypted_regex: ^(postgres|aws)$
+    version: 3.7.3

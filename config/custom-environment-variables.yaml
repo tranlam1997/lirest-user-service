@@ -10,7 +10,6 @@ postgres:
   host: POSTGRES_HOST
   port: POSTGRES_PORT
   username: POSTGRES_USERNAME
-  password: POSTGRES_PASSWORD
   database: POSTGRES_DATABASE
   schema: POSTGRES_SCHEMA
 
@@ -32,3 +31,9 @@ kafka:
     username: KAFKA_SASL_USERNAME
     password: KAFKA_SASL_PASSWORD
   enabled: KAFKA_ENABLED
+
+# AWS config
+aws:
+  region: AWS_REGION
+  accessKeyId: AWS_ACCESS_KEY_ID
+  secretAccessKey: AWS_SECRET_ACCESS_KEY
