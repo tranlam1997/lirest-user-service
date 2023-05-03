@@ -15,6 +15,9 @@ export class User {
   id: UUID;
 
   @Column({ type: 'varchar', length: 100 })
+  userId: string;
+
+  @Column({ type: 'varchar', length: 100 })
   firstName: string;
 
   @Column({ type: 'varchar', length: 100 })
