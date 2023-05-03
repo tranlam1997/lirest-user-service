@@ -1,11 +1,7 @@
 import { Application } from 'express';
-import {serve, SwaggerUiOptions, setup } from 'swagger-ui-express';
+import { serve, SwaggerUiOptions, setup } from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
 import config from 'config';
-import fs from 'fs';
-import path from 'path';
-
-const customCss = fs.readFileSync(path.resolve(__dirname, 'swagger-ui-custom.css'), 'utf8');
 
 const oaS3Options: swaggerJSDoc.OAS3Options = {
   definition: {
@@ -25,12 +21,6 @@ const oaS3Options: swaggerJSDoc.OAS3Options = {
         url: 'https://choosealicense.com/licenses/mit/',
       },
     },
-    servers: [
-      {
-        url: `http://${config.get('service.host')}:${config.get('service.port')}`,
-        description: 'Lirest API Documentation',
-      },
-    ],
     tags: [
       {
         name: 'Ping',
@@ -47,7 +37,6 @@ const oaS3Options: swaggerJSDoc.OAS3Options = {
 
 const swaggerUIOptions: SwaggerUiOptions = {
   explorer: true,
-  customCss,
   swaggerOptions: {
     validatorUrl: null,
     syntaxHighlight: {

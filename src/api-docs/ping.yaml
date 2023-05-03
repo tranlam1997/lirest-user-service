@@ -1,7 +1,7 @@
 openapi: 3.0.0
 
 paths:
-  /api/v1/ping:
+  /api/v1/users/ping:
     get:
       tags:
         - Ping

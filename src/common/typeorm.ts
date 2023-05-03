@@ -11,8 +11,8 @@ let dataSource: DataSource;
 
 async function connectToDb(this: any): Promise<void> {
   const cert = readFileSync(join(process.cwd(), `/certs/global-bundle.pem`)).toString();
-
   const token = await signer.getAuthToken();
+
   dataSource = new DataSource({
     type: 'postgres',
     host: config.get('postgres.host'),
@@ -20,6 +20,7 @@ async function connectToDb(this: any): Promise<void> {
     username: config.get('postgres.username'),
     password: token,
     database: config.get('postgres.database'),
+    schema: config.get('postgres.schema'),
     ssl: {
       rejectUnauthorized: true,
       requestCert: true,

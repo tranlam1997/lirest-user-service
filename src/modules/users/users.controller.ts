@@ -1,6 +1,7 @@
 import { UsersService } from './users.service';
 import { Request, Response, Router } from 'express';
 import { asyncHandler } from '@src/shared/helper';
+import { ResultResponse } from '../../shared/response-format';
 
 const UsersRouter = Router();
 
@@ -9,7 +10,11 @@ export default (app: Router) => {
     '/:id',
     asyncHandler(async (req: Request, res: Response) => {
       const user = await UsersService.getUserById(req.params.id);
-      return res.status(200).send(user);
+      return ResultResponse.info(res, {
+        response: {
+          data: user,
+        },
+      });
     }),
   );
 
@@ -20,5 +25,5 @@ export default (app: Router) => {
     }),
   );
 
-  app.use('/users', UsersRouter);
+  app.use('/', UsersRouter);
 };

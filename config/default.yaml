@@ -3,14 +3,14 @@ service:
     name: lirest-user-service
     host: 127.0.0.1
     port: 3001
-    baseUrl: /api/v1
+    baseUrl: /api/v1/users
 # Database configuration
 postgres:
-    host: ENC[AES256_GCM,data:k0MYX+DIZeAgNmifXuquej7M/NrGxLmtNCJxLQBVASXfKh06EnVYP5xWP4CCpehh2i3B,iv:1q9jJl578fEp0Py0L+pOxkSJ4DoVV6hqIAaHGpc3PSI=,tag:8b8KROPFKxMKUCKK9m+XDQ==,type:str]
-    port: ENC[AES256_GCM,data:jdHpQQ==,iv:ATIHN8M6kKTjEQe4a/Oy8A+NaWGCRm1GXkr5chR5edo=,tag:FxrKzGC5mYEIuUjS+ug5ZQ==,type:int]
-    username: ENC[AES256_GCM,data:+97byOZDQduLFg==,iv:bGDYEAKu8RfOO99VswXNh12J/o7W7GsTrwtKD33pusw=,tag:L1BOLPkBVT4y4rejJZlA5Q==,type:str]
-    database: ENC[AES256_GCM,data:SEqxfYYn,iv:otzY1eXu3qwXUmzfR22CYltaZ3kQNnjWzJhNXwP+nKI=,tag:rDWCzHurbM1Gnk7LwVQbxQ==,type:str]
-    schema: ENC[AES256_GCM,data:7sOCJQ==,iv:5/wYKz3YdMTAcSJO2N7zhBbeg/vYJXjAG1GdYVrMm+8=,tag:zISnD/1W397rAXE2AjdMsA==,type:str]
+    host: ENC[AES256_GCM,data:wW0EOF9e5f45ixFoOGWxzqWbWbeLXb9P43DGs/YhxUvwI+3t0V4NQ+JWxhRWGCT/q4/X,iv:wYIrld8fHrvDVR/n98+oEjTGYVbUqykDaCCdNfVzvCg=,tag:api4jhF3vT2dZvo7n4Xyqg==,type:str]
+    port: ENC[AES256_GCM,data:Y0fG6g==,iv:EV1Hou9666bg0Bp8+CaN1PYoaBo7HbpKRgO0domeHBQ=,tag:IaxN6uf5AR3EQ6gjmdBKww==,type:int]
+    username: ENC[AES256_GCM,data:SvgPGMcLZqm9Lg==,iv:OfcCqTG58iHzjFABpkDqCId6iGZqDyb8yo9w0Cx623U=,tag:JWZ0K2pZsaxuykuyfvQwYQ==,type:str]
+    database: ENC[AES256_GCM,data:DTiPhjpe,iv:I+4CBPphhQu5Hsj05AQQGKe/YorPUJsPkvDkFHq9hFo=,tag:SGRrJRkih7msxeSXIv2nSw==,type:str]
+    schema: ENC[AES256_GCM,data:Fd7Acg==,iv:xxMDD+NzX7YKoR+kyF+/ta7mSQ4xLvQu7cLyfA5NiDo=,tag:kataP3ESs4rZgtszTCg7Iw==,type:str]
 # API documentation configuration
 api-docs:
     username: ""
@@ -22,27 +22,27 @@ log:
 kafka:
     clientId: lirest-user-service
     groupId: lirest-user-service-group
-    serverUrl: localhost:9092
+    serverUrl: pkc-1dkx6.ap-southeast-1.aws.confluent.cloud:9092
     sasl:
-        username: ""
-        password: ""
-    enabled: false
+        username: ILK6DZ3OA76F2G4Q
+        password: Cxbas4RGsUGBm3uYMsK0iRjD+mFNYmcdAqJteVhdpzslswyCskC/kEDz9AwidIcZ
+    enabled: true
 # AWS config
 aws:
-    region: ENC[AES256_GCM,data:+Y+o8TtPNAdS,iv:Up8pknNevNT7onlffOB4SV1+oBMXj3ehDajrx6uYD3U=,tag:xwd4dLm2eQTzuWAGTDdRDw==,type:str]
-    accessKeyId: ENC[AES256_GCM,data:fhU4AIAPbAdHxWcl2xW7RVJ+G2c=,iv:FJUkBAeEQemDnQM5RPvMQ2b5n+tq/NcZnjmx8N3PbFE=,tag:6lkB7x0XOUshBMBoeP/VGA==,type:str]
-    secretAccessKey: ENC[AES256_GCM,data:JXlGVGDNjUsuNR7KkDE+nnKYoP6DToGRTuHPX1Dl67wxW2oem1pl5Q==,iv:SP5wy1JBEpFnUC8OajNFF0Wp/6JcjNiOxC1bkV6dBV8=,tag:FVym55X6hJ60edqngYkKrA==,type:str]
+    region: ENC[AES256_GCM,data:AOXhqvCACgZU,iv:Mq3zZMu4i44h3Pw6I1tJT1ef0KsQ+IPI5NEcVBo/y6I=,tag:fR7VSDlvHJhCA884lMJM3A==,type:str]
+    accessKeyId: ENC[AES256_GCM,data:5vNP4ejJ2u8lKDvQqFoWZNzFMxY=,iv:pn9OqiyUF+XpQ0xaHEvtfgeWHZFaeQk+DnHS9404DYk=,tag:WkaX6dui6hbuBPYoalfDNA==,type:str]
+    secretAccessKey: ENC[AES256_GCM,data:I2ZF8So7CGvDQFbKiNqaDpTcCfrCOiARVSh+8PFBkLqbDPh15I+yFw==,iv:wQoHgSxyknUcjGeateM/M6RbODPKpacBGMfpG7gv3Dc=,tag:Wp48fqnJCKTqKDUFf9z28A==,type:str]
 sops:
     kms: []
     gcp_kms:
         - resource_id: projects/dotted-howl-319203/locations/global/keyRings/sops/cryptoKeys/sops-key
-          created_at: "2023-05-01T16:31:37Z"
-          enc: CiQAmgMp+q6NdG54LykDrscdyuZibn9UiORcFi1YuThRaBiTYewSSQB80D3f7eTxZWU+Xt8RPZlhSFL4lHRryBmn2NSNFZPigKSAczlPYwP6FZ4tUEaT+nDdJVRKrlnIw3w0ibrJ2j7RMxAV3ecpu8E=
+          created_at: "2023-05-03T20:55:17Z"
+          enc: CiQAmgMp+nvItNFCjB7n/Gt7HD1VJvBPBnEojBKkxkMMfOjj2g4SSQB80D3f/JVfhqS1jZXxQbAP89WhfYCQn7ys5BdD3J9UWRbGaz1aICy4feauWVhvJ/86cplzwZTHZye+KC8gGBcNU9rrSDof5sQ=
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-05-01T16:31:38Z"
-    mac: ENC[AES256_GCM,data:QYA8Mw8XyudLVE6V/9GbwigL6J0TolYoiGuBGI8CAObPzt6d5LDzyFdLo9UpKyHPWcuaFAnrm25pf+Cjoyaop1qk76Vdk88DNKCYBzZB2Dbe3BkFuTEznOnAL7WnsGVZna4ChB36AQEwWll2ujvMoJXv3fMlSNZQcCjUwFUuR88=,iv:wweno+bycVlhai07yyGEYz0YSobCbIIF1HDAoyulyGI=,tag:6yYLv0ZnWGJ6gcWswU5VzA==,type:str]
+    lastmodified: "2023-05-03T20:55:18Z"
+    mac: ENC[AES256_GCM,data:Tt0nNdZl3O1eCsxMkG6UwT/qpv+npFVT2Jyng/pnwma+iQnLB8HVqBPrsKA7zbGIz19lsTZV51HaAafyBGJKO6QxECpJY68oxZGF9yjaDe30M2aZp2bykrSbgvLD2pET9+pbq45XovV5IA8Rks4AE4m9wvQRezlGVroWeXUFFUU=,iv:WMuK3kp9IrQrt6XDGKNcjk6hyWhtXiT7b8YmgBS+zxs=,tag:rjWpyY84qIJBD5jlajZJZw==,type:str]
     pgp: []
     encrypted_regex: ^(postgres|aws)$
     version: 3.7.3

@@ -23,7 +23,7 @@ export class ResultResponse {
       return res
         .setHeader(
           'X-Response-Time',
-          `${convertNanosecondsToMilliseconds(Number(process.hrtime.bigint() - res.locals.startTime))} ms`,
+          `${convertNanosecondsToMilliseconds(Number(Number(process.hrtime.bigint()) - res.locals.startTime))} ms`,
         )
         .status(statusCode)
         .json(defaultResult);
@@ -32,7 +32,7 @@ export class ResultResponse {
     return res
       .setHeader(
         'X-Response-Time',
-        `${convertNanosecondsToMilliseconds(Number(process.hrtime.bigint() - res.locals.startTime))} ms`,
+        `${convertNanosecondsToMilliseconds(Number(Number(process.hrtime.bigint()) - res.locals.startTime))} ms`,
       )
       .status(statusCode)
       .json({
