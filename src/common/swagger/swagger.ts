@@ -32,7 +32,7 @@ const oaS3Options: swaggerJSDoc.OAS3Options = {
       }
     ],
   },
-  apis: ['./src/api-docs/**/*.yaml'],
+  apis: [`${process.cwd()}/**/api-docs/**/*.yaml`],
 };
 
 const swaggerUIOptions: SwaggerUiOptions = {

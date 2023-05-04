@@ -19,28 +19,4 @@ export default function gracefulShutdown() {
       process.exit(1);
     }
   });
-
-  process.once('SIGINT', async () => {
-    try {
-      processLogger.info('SIGINT signal received.');
-      processLogger.info('Closing http server.');
-      await kafkaConsumer.disconnect();
-      process.exit(0);
-    } catch (err) {
-      processLogger.error(err);
-      process.exit(1);
-    }
-  });
-
-  process.once('SIGTERM', async () => {
-    try {
-      processLogger.info('SIGTERM signal received.');
-      processLogger.info('Closing http server.');
-      await kafkaConsumer.disconnect();
-      process.exit(0);
-    } catch (err) {
-      processLogger.error(err);
-      process.exit(1);
-    }
-  });
 }
