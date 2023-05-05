@@ -28,7 +28,7 @@ async function connectToDb(this: any): Promise<void> {
     },
     synchronize: true,
     migrationsRun: true,
-    entities: ['**/*.entity.ts'],
+    entities: [`${process.cwd()}/**/*.entity.ts`],
     // migrations: ['../migrations/*.ts'],
     namingStrategy: new SnakeNamingStrategy(),
   } as DataSourceOptions);
